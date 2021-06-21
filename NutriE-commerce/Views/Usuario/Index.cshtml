@@ -1,0 +1,77 @@
+﻿@model IEnumerable<NutriE_commerce.Models.tblUsuario>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.usuNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.usuCedula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.usuTelefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.usuCorreo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.usuContra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.usuEstado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tblRol.rolNombre)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.usuNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.usuCedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.usuTelefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.usuCorreo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.usuContra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.usuEstado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblRol.rolNombre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.usuId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.usuId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.usuId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

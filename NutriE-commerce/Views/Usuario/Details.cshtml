@@ -1,0 +1,82 @@
+﻿@model NutriE_commerce.Models.tblUsuario
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>tblUsuario</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.usuNombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.usuNombre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.usuCedula)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.usuCedula)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.usuTelefono)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.usuTelefono)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.usuCorreo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.usuCorreo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.usuContra)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.usuContra)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.usuEstado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.usuEstado)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.tblRol.rolNombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.tblRol.rolNombre)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.usuId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

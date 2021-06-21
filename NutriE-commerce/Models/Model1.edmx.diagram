@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="81a620127d0645e5bfb5343b8bc9d69e" Name="Diagram1">
+        <EntityTypeShape EntityType="nutriecommerceModel.tblCategoria" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="nutriecommerceModel.tblProducto" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="nutriecommerceModel.tblRol" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nutriecommerceModel.tblUsuario" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="nutriecommerceModel.tblVenta" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="nutriecommerceModel.FK_tbl_producto_tbl_categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="nutriecommerceModel.FK_tbl_venta_tbl_producto" ManuallyRouted="false" />
+        <AssociationConnector Association="nutriecommerceModel.FK_tbl_usuario_tbl_rol" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,50 @@
+﻿@model NutriE_commerce.Models.tblCategoria
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>tblCategoria</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.catNombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.catNombre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.catDesc)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.catDesc)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.catEstado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.catEstado)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.catId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

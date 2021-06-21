@@ -1,0 +1,125 @@
+﻿@model NutriE_commerce.Models.tblProducto
+
+@{
+    Layout = null;
+}
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Edit</title>
+</head>
+<body>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.proId)
+
+            <div class="container">
+                <br />
+                <br />
+                <h1 style="text-align:center">Productos </h1>
+                <hr />
+                <br />
+                <form class="row g-3">
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label" style="padding-top:3%">Codigo </label>
+
+                        @Html.EditorFor(model => model.proCodigo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.proCodigo, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputPassword4" class="form-label" style="padding-top:3%">Nombre</label>
+                        @Html.EditorFor(model => model.proNombre, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.proNombre, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputAddress" class="form-label" style="padding-top:2%">Descripción</label>
+                        @Html.EditorFor(model => model.proDesc, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.proDesc, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="inputCity" class="form-label" style="padding-top:3%">Stock</label>
+                        @Html.EditorFor(model => model.proStock, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.proStock, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputState" class="form-label" style="padding-top:3%">Categoria</label>
+                        <select id="inputState" class="form-select">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputZip" class="form-label" style="padding-top:3%">Precio</label>
+                        @Html.EditorFor(model => model.proPrecio, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.proPrecio, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label" style="padding-top:3%">Observación  </label>
+
+                        @Html.EditorFor(model => model.proObser, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.proObser, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="col-md-6"style="padding-top:3%">
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                    </div>
+                </form>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    }
+    <div class="container">
+        <div class="btn btn-primary stretched-link">
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+</body>
+</html>
