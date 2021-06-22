@@ -9,103 +9,97 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
+    <title>Crear</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
 </head>
 <body>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
-    
-    
-    @using (Html.BeginForm()) 
+
+
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        
-        <div class="form-horizontal">
-            <h4>tblProducto</h4>
+
+        <div class="container">
+            <br />
+            <br />
+            <center><h1>Crear Producto </h1></center>
             <hr />
+            <br />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.catId, "catId", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Categoria</label>
                     @Html.DropDownList("catId", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.catId, "", new { @class = "text-danger" })
                 </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.proCodigo, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+
+                <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Código</label>
                     @Html.EditorFor(model => model.proCodigo, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.proCodigo, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.proNombre, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="inputAddress" class="form-label">Nombre</label>
                     @Html.EditorFor(model => model.proNombre, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.proNombre, "", new { @class = "text-danger" })
                 </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.proStock, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+                <div class="col-md-6">
+                    <label for="inputAddress2" class="form-label">Cantidad</label>
                     @Html.EditorFor(model => model.proStock, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.proStock, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.proDesc, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="inputCity" class="form-label">Descripción</label>
                     @Html.EditorFor(model => model.proDesc, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.proDesc, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.proPrecio, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+            <br />
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="inputCity" class="form-label">Precio</label>
                     @Html.EditorFor(model => model.proPrecio, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.proPrecio, "", new { @class = "text-danger" })
                 </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.proObser, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+
+                <div class="col-md-4">
+                    <label for="inputCity" class="form-label">Obsrvación</label>
                     @Html.EditorFor(model => model.proObser, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.proObser, "", new { @class = "text-danger" })
                 </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.proFecha, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+
+                <div class="col-md-4">
+                    <label for="inputCity" class="form-label">Fecha</label>
                     @Html.EditorFor(model => model.proFecha, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.proFecha, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
+            <br />
+
             <div class="form-group">
-                @Html.LabelFor(model => model.proEstado, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.proEstado, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.proEstado, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                <div class="d-grid gap-2">
+                    <input type="submit" value="Crear nuevo producto" class="btn btn-primary" />
                 </div>
             </div>
         </div>
     }
-    
-    <div>
-        @Html.ActionLink("Back to List", "Index")
+<br />
+    <div class="container">
+        
+        @Html.ActionLink("Ir a Producto", "Index")
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
 </body>
 </html>
