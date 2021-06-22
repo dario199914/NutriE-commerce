@@ -269,7 +269,6 @@
     <Content Include="styleLogin\fonts\fontawesome-webfont.woff" />
     <Content Include="styleLogin\fonts\fontawesome-webfont.woff2" />
     <Content Include="styleLogin\fonts\FontAwesome.otf" />
-    <Content Include="Views\Acceso\Login.cshtml" />
     <Content Include="Views\Categoria\Create.cshtml" />
     <Content Include="Views\Categoria\Delete.cshtml" />
     <Content Include="Views\Categoria\Details.cshtml" />
@@ -285,6 +284,7 @@
     <Content Include="Views\Producto\Details.cshtml" />
     <Content Include="Views\Producto\Edit.cshtml" />
     <Content Include="Views\Producto\Index.cshtml" />
+    <Content Include="Views\Acceso\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

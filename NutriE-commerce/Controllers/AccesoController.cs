@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,12 +20,12 @@ namespace NutriE_commerce.Controllers
         [HttpPost]
         public ActionResult Login(string User, string Pass) 
         {
-            NpgsqlConnection conn = new NpgsqlConnection();
-            conn.ConnectionString = "Server=localhost;Port=5432;User Id=postgres;Password=123456789;Database=Prueba";
-                         string sentencia = "SELECT *FROM tbl_usuario WHERE usu_nombre='" + User + "' AND usu_pass='" + Pass + "'; ";
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = @"Data Source=DESKTOP-5FUIGH5\SQLEXPRESS;Initial Catalog=nutriecommerce;Integrated Security=True;";
+                         string sentencia = "SELECT *FROM tblUsuario WHERE usuNombre='" + User + "' AND usuContra='" + Pass + "'; ";
             conn.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand(sentencia, conn);
-            NpgsqlDataReader reader;
+            SqlCommand cmd = new SqlCommand(sentencia, conn);
+            SqlDataReader reader;
             reader = cmd.ExecuteReader();
 
             string user;
