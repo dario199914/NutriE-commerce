@@ -1,8 +1,9 @@
 ﻿@model NutriE_commerce.Models.tblProducto
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 <!DOCTYPE html>
 
@@ -10,16 +11,14 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Details</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
 </head>
 <body>
-    <div class="container">
-        <br />
-        <br />
-        <center><h1>Detalle del Producto</h1></center>
-        <hr />
-        <br />
+
+
+    <center><h1>Detalle del Producto</h1></center>
+    <hr />
+    <div class="panel panel-default">
         <div class="panel-body">
             <table class="table table-striped" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-style:italic;">
                 <thead>
@@ -34,44 +33,44 @@
                         <th class="text-center"> Fecha </th>
                         <th class="text-center"> Imagen</th>
                         <th class="text-center"> Categoria </th>
-                       
+
 
 
                     </tr>
                 </thead>
                 <tbody>
-                        <tr>
-                            <td class="text-center">
-                                @Html.DisplayFor(model => model.proCodigo)
-                            </td>
-                            <td class="text-center">
-                                @Html.DisplayFor(model => model.proNombre)
-                            </td>
-                            <td class="text-center">
-                                @Html.DisplayFor(model => model.proStock)
-                            </td>
-                            <td class="text-center">
-                                @Html.DisplayFor(model => model.proDesc)
-                            </td>
-                            <td class="text-center">
-                                @Html.DisplayFor(model => model.proPrecio)
-                            </td>
-                            <td class="text-center">
-                                @Html.DisplayFor(model => model.proObser)
-                            </td>
-                            <td class="text-center">
-                                @Html.DisplayFor(model => model.proFecha)
-                            </td>
-                            <td class="text-center">
-                                @Html.DisplayFor(model => model.proEstado)
-                            </td>
-                            <td class="text-center">
-                                @Html.DisplayFor(model => model.tblCategoria.catNombre)
-                            </td>
-                          
-                        </tr>
+                    <tr>
+                        <td class="text-center">
+                            @Html.DisplayFor(model => model.proCodigo)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(model => model.proNombre)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(model => model.proStock)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(model => model.proDesc)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(model => model.proPrecio)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(model => model.proObser)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(model => model.proFecha)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(model => model.proEstado)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(model => model.tblCategoria.catNombre)
+                        </td>
 
-                     </tbody>
+                    </tr>
+
+                </tbody>
 
 
 
@@ -84,7 +83,7 @@
 
     </div>
     <br />
-    <div class="container">
+    <div style="text-align:right">
         <p>
             @Html.ActionLink("Editar", "Edit", new { id = Model.proId }) |
             @Html.ActionLink("Ir a Producto", "Index")

@@ -12,7 +12,7 @@
     <title>Delete</title>
 </head>
 <body>
-    <div >
+    <div>
         <center><h1>Eliminar Categoria </h1></center>
         <hr />
 
@@ -47,17 +47,17 @@
                     </tbody>
                 </table>
             </div>
-
         </div>
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-
-            <div class="form-actions no-color">
-                <input type="submit" value="Eliminar " class="btn btn-primary" />
-                @Html.ActionLink("Ir a Categoria", "Index")
-            </div>
-        }
     </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar " class="btn btn-primary" />
+            @Html.ActionLink("Ir a Categoria", "Index")
+        </div>
+    }
+
 </body>
 </html>
