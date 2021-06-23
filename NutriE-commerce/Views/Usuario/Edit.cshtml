@@ -22,7 +22,7 @@
     {
         @Html.AntiForgeryToken()
 
-        <<div class="container">
+        <div class="container">
     <br />
     <br />
     <center><h1>Editar Usuario </h1></center>
@@ -44,6 +44,7 @@
             @Html.ValidationMessageFor(model => model.usuNombre, "", new { @class = "text-danger" })
         </div>
     </div>
+    <br />
 
     <div class="row">
         <div class="col-md-6">
@@ -58,6 +59,7 @@
             @Html.ValidationMessageFor(model => model.usuTelefono, "", new { @class = "text-danger" })
         </div>
     </div>
+    <br />
 
     <div class="row">
         <div class="col-md-6">
@@ -72,6 +74,7 @@
             @Html.ValidationMessageFor(model => model.usuContra, "", new { @class = "text-danger" })
         </div>
     </div>
+    <br />
 
     <div clclass="col-md-6">
         <label for="inputPassword4" class="form-label">Estado</label>
@@ -80,17 +83,18 @@
             @Html.ValidationMessageFor(model => model.usuEstado, "", new { @class = "text-danger" })
         </div>
     </div>
+    <br />
 
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+        <div class="d-grid gap-2">
+            <input type="submit" value="Guardar cambios" class="btn btn-primary" />
         </div>
     </div>
 </div>
     }
-
-    <div>
-        @Html.ActionLink("Back to List", "Index")
+<br />
+    <div class="container">
+        @Html.ActionLink("Ir a Usuarios", "Index")
     </div>
 </body>
 </html>

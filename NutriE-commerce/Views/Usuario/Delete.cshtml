@@ -10,79 +10,71 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Delete</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
 </head>
 <body>
-    <h3>Are you sure you want to delete this?</h3>
-    <div>
-        <h4>tblUsuario</h4>
+    <div class="container">
+        <br />
+        <br />
+        <center><h1>Eliminar Usuario </h1></center>
         <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.usuNombre)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.usuNombre)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.usuCedula)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.usuCedula)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.usuTelefono)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.usuTelefono)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.usuCorreo)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.usuCorreo)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.usuContra)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.usuContra)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.usuEstado)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.usuEstado)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.tblRol.rolNombre)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.tblRol.rolNombre)
-            </dd>
-    
-        </dl>
-    
-        @using (Html.BeginForm()) {
-            @Html.AntiForgeryToken()
-    
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
-            </div>
-        }
-    </div>
+        <br />
+
+        <h3>¿Estás segura de que quieres eliminar este elemento?</h3>
+        <br />
+
+        <div class="panel-body">
+            <table class="table table-striped" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-style:italic;">
+                <thead>
+                    <tr>
+                        <th class="text-center"> Nombre </th>
+                        <th class="text-center"> Cedula </th>
+                        <th class="text-center"> Telefono </th>
+                        <th class="text-center"> Correo </th>
+                        <th class="text-center"> Contraseña </th>
+                        <th class="text-center"> Estado </th>
+                        <th class="text-center"> Rol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center">
+                            @Html.DisplayFor(model => model.usuNombre)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(model => model.usuCedula)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(model => model.usuTelefono)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(model => model.usuCorreo)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(model => model.usuContra)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(model => model.usuEstado)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(model => model.tblRol.rolNombre)
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Eliminar Usuario" class="btn btn-primary" /> |
+                    @Html.ActionLink("Ir a Usuarios", "Index")
+                </div>
+            }
+        </div>
+
 </body>
 </html>
