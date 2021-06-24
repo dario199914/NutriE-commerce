@@ -10,7 +10,23 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <style type="text/css">
+        a.my-class {
+            color: white
+        }
 
+            a.my-class:active {
+                color: white
+            }
+
+            a.my-class:link {
+                color: white
+            }
+
+            a.my-class:visited {
+                color: white
+            }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -21,7 +37,7 @@
 
         <p>
             <div class="btn-group">
-                <button type="submit" name="add_product" class="btn btn-warning" aria-current="page">  @Html.ActionLink("Crear Nuevo", "Create")</button>
+                <button type="submit" name="add_product" class="btn btn-primary" aria-current="page">  @Html.ActionLink("Crear Nuevo", "Create", null, new { @class = "my-class" })</button>
             </div>
         </p>
         <br />

@@ -11,14 +11,30 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Details</title>
+    <style type="text/css">
+        a.my-class {
+            color: white
+        }
 
+            a.my-class:active {
+                color: white
+            }
+
+            a.my-class:link {
+                color: white
+            }
+
+            a.my-class:visited {
+                color: white
+            }
+    </style>
 </head>
 <body>
     <div class="">
-     
+
         <center><h1>Detalle del Usuario</h1></center>
         <hr />
-     
+
         <div class="panel panel-default">
             <div class="panel-body">
                 <table class="table table-striped" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-style:italic;">
@@ -70,8 +86,10 @@
     </div>
     <br />
     <p class="container" style="text-align:right">
-        @Html.ActionLink("Editar", "Edit", new { id = Model.usuId }) |
-        @Html.ActionLink("Ir a Usuarios", "Index")
+        <button type="button" class="btn btn-primary"> @Html.ActionLink("Editar", "Edit", new { id = Model.usuId }, new { @class = "my-class" })</button>
+        <button type="button" class="btn btn-primary">@Html.ActionLink("Ir a Usuarios", "Index", null, new { @class = "my-class" })</button>
+
+
     </p>
 </body>
 </html>

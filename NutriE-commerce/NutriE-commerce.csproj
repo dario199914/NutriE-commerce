@@ -217,6 +217,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Logo.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -227,6 +228,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="Perro.png" />
+    <Content Include="perronutrioton.png" />
+    <Content Include="perronutrioton1.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\Model1.edmx">
@@ -250,6 +254,7 @@
     <Content Include="styleLogin\css\font-awesome.css" />
     <Content Include="styleLogin\css\style.css" />
     <Content Include="styleLogin\images\bg.jpg" />
+    <Content Include="styleLogin\images\Fondo1.jpeg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -286,14 +291,10 @@
     <Content Include="Views\Producto\Edit.cshtml" />
     <Content Include="Views\Producto\Index.cshtml" />
     <Content Include="Views\Acceso\Login.cshtml" />
-    <Content Include="Views\Venta\Create.cshtml" />
-    <Content Include="Views\Venta\Delete.cshtml" />
-    <Content Include="Views\Venta\Details.cshtml" />
-    <Content Include="Views\Venta\Edit.cshtml" />
-    <Content Include="Views\Venta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Venta\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

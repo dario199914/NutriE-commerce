@@ -217,10 +217,11 @@ img {
 /*--end reset--*/
 
 body {
-	font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 100%;
-    background: url(../images/bg.jpg)no-repeat center;
+    background: url(../images/Fondo1.jpeg)no-repeat center;
     background-size: cover;
+    background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

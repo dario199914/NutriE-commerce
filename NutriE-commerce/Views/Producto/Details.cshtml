@@ -11,7 +11,23 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Details</title>
+    <style type="text/css">
+        a.my-class {
+            color: white
+        }
 
+            a.my-class:active {
+                color: white
+            }
+
+            a.my-class:link {
+                color: white
+            }
+
+            a.my-class:visited {
+                color: white
+            }
+    </style>
 </head>
 <body>
 
@@ -85,8 +101,10 @@
     <br />
     <div style="text-align:right">
         <p>
-            @Html.ActionLink("Editar", "Edit", new { id = Model.proId }) |
-            @Html.ActionLink("Ir a Producto", "Index")
+            <button type="button" class="btn btn-primary"> @Html.ActionLink("Editar", "Edit", new { id = Model.proId }, new { @class = "my-class" })</button>
+            <button type="button" class="btn btn-primary"> @Html.ActionLink("Ir a Producto", "Index", null, new { @class = "my-class" })</button>
+            
+           
         </p>
     </div>
 </body>

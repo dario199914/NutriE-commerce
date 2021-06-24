@@ -10,6 +10,23 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Create</title>
+    <style type="text/css">
+        a.my-class {
+            color: white
+        }
+
+            a.my-class:active {
+                color: white
+            }
+
+            a.my-class:link {
+                color: white
+            }
+
+            a.my-class:visited {
+                color: white
+            }
+    </style>
 </head>
 <body>
     @Scripts.Render("~/bundles/jquery")
@@ -67,7 +84,8 @@
     <br />
     <center>
         <div class="container">
-            @Html.ActionLink("Ir a Categoria ", "Index")
+            <button type="button" class="btn btn-primary">@Html.ActionLink("Ir a Categoria ", "Index", null, new { @class = "my-class" })</button>
+            
         </div>
 
     </center>

@@ -10,7 +10,23 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Delete</title>
+    <style type="text/css">
+        a.my-class {
+            color: white
+        }
 
+            a.my-class:active {
+                color: white
+            }
+
+            a.my-class:link {
+                color: white
+            }
+
+            a.my-class:visited {
+                color: white
+            }
+    </style>
 </head>
 <body>
 
@@ -67,12 +83,16 @@
             {
                 @Html.AntiForgeryToken()
 
-                <div class="form-actions no-color">
-                    <input type="submit" value="Eliminar Usuario" class="btn btn-primary" /> |
-                    @Html.ActionLink("Ir a Usuarios", "Index")
-                </div>
+
             }
         </div>
+
+    </div>
+    <div class="form-actions no-color" style="text-align:right">
+
+        <input type="submit" value="Eliminar Usuario" class="btn btn-primary" />
+
+        <button type="button" class="btn btn-primary"> @Html.ActionLink("Ir a Usuarios", "Index", null, new { @class = "my-class" })</button>
     </div>
 </body>
 </html>

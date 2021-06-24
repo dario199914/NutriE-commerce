@@ -4,26 +4,26 @@
     Layout = "~/Views/_LayoutLogin.cshtml";
 }
 
-<h1>Spin Login Form </h1>
-<div class="clear-loading spinner">
-    <span></span>
+<h1>Ingreso al Sistema</h1>
+<div >
+    <img src="~/Perro.png"  width="120" height="120"/>
 </div>
 <div class="w3ls-login box box--big">
     <!-- form starts here -->
     <form action="@Url.Content("~/Acceso/Login")" method="post">
         <div class="agile-field-txt">
-            <label><i class="fa fa-user" aria-hidden="true"></i> Username </label>
-            <input type="text" name="User" placeholder="Enter User Name" required="" />
+            <label><i class="fa fa-user" aria-hidden="true"></i> Usuario </label>
+            <input type="text" name="User" placeholder="Ingrese su Usuario" required="" />
         </div>
         <div class="agile-field-txt">
-            <label><i class="fa fa-unlock-alt" aria-hidden="true"></i> password </label>
-            <input type="password" name="Pass" placeholder="Enter Password" required="" id="myInput" />
+            <label><i class="fa fa-unlock-alt" aria-hidden="true"></i> Contraseña </label>
+            <input type="password" name="Pass" placeholder="Ingrese su Contraseña" required="" id="myInput" />
             <div class="agile_label">
                 <input id="check3" name="check3" type="checkbox" value="show password" onclick="myFunction()">
-                <label class="check" for="check3">Show password</label>
+                <label class="check" for="check3">Mostrar Contraseña</label>
             </div>
             <div class="agile-right">
-                <a href="#">forgot password?</a>
+                <a href="#">¿Olvdio su contraseña?</a>
             </div>
         </div>
         <!-- script for show password -->
@@ -38,15 +38,10 @@
 				}
         </script>
         <!-- //end script -->
-        <input type="submit" value="LOGIN">
+        <input type="submit" value="Ingresar">
     </form>
 </div>
 <!-- //form ends here -->
 <!--copyright-->
-<div class="copy-wthree">
-    <p>
-        © 2018 Spin Login Form . All Rights Reserved | Design by
-        <a href="http://w3layouts.com/" target="_blank">W3layouts</a>
-    </p>
-</div>
+
 

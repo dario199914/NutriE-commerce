@@ -10,18 +10,34 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <style type="text/css">
+        a.my-class {
+            color: white
+        }
 
+            a.my-class:active {
+                color: white
+            }
+
+            a.my-class:link {
+                color: white
+            }
+
+            a.my-class:visited {
+                color: white
+            }
+    </style>
 </head>
 <body style="padding:0%">
    
     <div class="container">
        
-        <center><h1>Listado de Categorias</h1></center>
+        <center><h1><i>Listado de Categorias </i></h1></center>
         <hr />
        
         <p>
             <div class="btn-group">
-                <button type="submit" name="add_product" class="btn btn-warning" aria-current="page"> @Html.ActionLink("Agregar Categoria", "Create")</button>
+                <button type="submit" name="add_product" class="btn btn-primary" aria-current="page"> @Html.ActionLink("Agregar Categoria", "Create", null, new { @class = "my-class" }) </button>
             </div>
         </p>
         <br />
