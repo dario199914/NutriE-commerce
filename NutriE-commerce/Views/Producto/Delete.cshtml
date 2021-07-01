@@ -30,60 +30,59 @@
 </head>
 <body>
 
-    <div>
+    <div class="container">
 
-        <center><h1>Eliminar Producto </h1></center>
+        <center><h1 style="color:white"><i>Eliminar Producto </i></h1></center>
         <hr />
-
-        <h3>¿Estás seguro de que quieres eliminar este elemento?</h3>
+        <h3 style="color:white">¿Estás segura de que quieres eliminar este elemento?</h3>
         <br />
         <div class="panel panel-default">
+
             <div class="panel-body">
                 <table class="table table-striped" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-style:italic;">
+
                     <thead>
                         <tr>
 
-                            <th class="text-center"> Código </th>
+                            <th class="text-center"> Codigo </th>
                             <th class="text-center"> Nombre </th>
-                            <th class="text-center"> Stock </th>
-                            <th class="text-center"> Detalle </th>
+                            <th class="text-center"> Cantidad </th>
+                            <th class="text-center"> Descripción </th>
                             <th class="text-center"> Precio </th>
                             <th class="text-center"> Observación </th>
-                            <th class="text-center"> Fecha </th>
-                            <th class="text-center"> Imagen</th>
+                            <th class="text-center"> Imagen </th>
                             <th class="text-center"> Categoria </th>
 
 
 
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="text-align:center">
+
                         <tr>
-                            <td class="text-center">
+                            <td>
                                 @Html.DisplayFor(model => model.proCodigo)
                             </td>
-                            <td class="text-center">
+                            <td>
                                 @Html.DisplayFor(model => model.proNombre)
                             </td>
-                            <td class="text-center">
+                            <td>
                                 @Html.DisplayFor(model => model.proStock)
                             </td>
-                            <td class="text-center">
+                            <td>
                                 @Html.DisplayFor(model => model.proDesc)
                             </td>
-                            <td class="text-center">
+                            <td>
                                 @Html.DisplayFor(model => model.proPrecio)
                             </td>
-                            <td class="text-center">
+                            <td>
                                 @Html.DisplayFor(model => model.proObser)
                             </td>
-                            <td class="text-center">
-                                @Html.DisplayFor(model => model.proFecha)
+                            <td>
+                                <img src="@Url.Action("getImagen", new { id = Model.proId})" style="width:100px; height:150px;max-width:100%;height:auto;" />
+
                             </td>
-                            <td class="text-center">
-                                @Html.DisplayFor(model => model.proEstado)
-                            </td>
-                            <td class="text-center">
+                            <td>
                                 @Html.DisplayFor(model => model.tblCategoria.catNombre)
                             </td>
 
@@ -94,18 +93,19 @@
                 </table>
             </div>
         </div>
-        <br />
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-
-            <div class="form-actions" style="text-align:right">
-                <input type="submit" value="Eliminar Producto" class="btn btn-primary" />
-                <button type="button" class="btn btn-primary">@Html.ActionLink("Ir a Productos", "Index", null, new { @class = "my-class" })</button>
-
-            </div>
-        }
     </div>
 
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="text-align:right">
+            <input type="submit" value="Eliminar " class="btn btn-primary" />
+            <button type="button" class="btn btn-primary"> @Html.ActionLink("Ir a Productos", "Index", null, new { @class = "my-class" })</button>
+
+        </div>
+    }
 </body>
 </html>

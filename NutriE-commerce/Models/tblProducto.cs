@@ -28,6 +28,7 @@ namespace NutriE_commerce.Models
         public string proDesc { get; set; }
         public Nullable<decimal> proPrecio { get; set; }
         public string proObser { get; set; }
+        public byte[] proImagen { get; set; }
         public Nullable<System.DateTime> proFecha { get; set; }
         public string proEstado { get; set; }
     

@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using NutriE_commerce.Models;
 
@@ -12,7 +16,7 @@ namespace NutriE_commerce.Controllers
 {
     public class ProductoController : Controller
     {
-        private nutriecommerceEntities1 db = new nutriecommerceEntities1();
+        private nutriecommerceEntities8 db = new nutriecommerceEntities8();
 
         // GET: Producto
         public ActionResult Index()
@@ -48,8 +52,14 @@ namespace NutriE_commerce.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "proId,catId,proCodigo,proNombre,proStock,proDesc,proPrecio,proObser,proFecha,proEstado")] tblProducto tblProducto)
+        public ActionResult Create([Bind(Include = "proId,catId,proCodigo,proNombre,proStock,proDesc,proPrecio,proObser,proImagen,proFecha,proEstado")] tblProducto tblProducto)
         {
+            HttpPostedFileBase FileBase = Request.Files[0];
+
+            WebImage image = new WebImage(FileBase.InputStream);
+
+            tblProducto.proImagen = image.GetBytes();
+
             if (ModelState.IsValid)
             {
                 db.tblProducto.Add(tblProducto);
@@ -82,8 +92,21 @@ namespace NutriE_commerce.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "proId,catId,proCodigo,proNombre,proStock,proDesc,proPrecio,proObser,proFecha,proEstado")] tblProducto tblProducto)
+        public ActionResult Edit([Bind(Include = "proId,catId,proCodigo,proNombre,proStock,proDesc,proPrecio,proObser,proImagen,proFecha,proEstado")] tblProducto tblProducto)
         {
+            byte[] imagenActual = null;
+
+            HttpPostedFileBase FileBase = Request.Files[0];
+            if (FileBase == null)
+            {
+                imagenActual = db.tblProducto.SingleOrDefault(p => p.proId == tblProducto.proId).proImagen;
+            }
+            else
+            {
+                WebImage image = new WebImage(FileBase.InputStream);
+
+                tblProducto.proImagen = image.GetBytes();
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(tblProducto).State = EntityState.Modified;
@@ -127,6 +150,20 @@ namespace NutriE_commerce.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ActionResult getImagen(int id)
+        {
+            tblProducto tblProducto = db.tblProducto.Find(id);
+            byte[] byteImagen = tblProducto.proImagen;
+
+            MemoryStream memoryStream = new MemoryStream(byteImagen);
+            Image imagen = Image.FromStream(memoryStream);
+
+            memoryStream = new MemoryStream();
+            imagen.Save(memoryStream, ImageFormat.Jpeg);
+            memoryStream.Position = 0;
+
+            return File(memoryStream, "image/jpg");
         }
     }
 }

@@ -13,10 +13,10 @@ namespace NutriE_commerce.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class nutriecommerceEntities1 : DbContext
+    public partial class nutriecommerceEntities8 : DbContext
     {
-        public nutriecommerceEntities1()
-            : base("name=nutriecommerceEntities1")
+        public nutriecommerceEntities8()
+            : base("name=nutriecommerceEntities8")
         {
         }
     
@@ -25,6 +25,7 @@ namespace NutriE_commerce.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<tblCategoria> tblCategoria { get; set; }
         public virtual DbSet<tblProducto> tblProducto { get; set; }
         public virtual DbSet<tblRol> tblRol { get; set; }

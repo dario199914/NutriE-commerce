@@ -5,6 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="nutriecommerceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="tblCategoria">
           <Key>
             <PropertyRef Name="catId" />
@@ -26,6 +36,7 @@
           <Property Name="proDesc" Type="varchar" MaxLength="100" />
           <Property Name="proPrecio" Type="decimal" Precision="8" Scale="2" />
           <Property Name="proObser" Type="varchar" MaxLength="100" />
+          <Property Name="proImagen" Type="image" />
           <Property Name="proFecha" Type="date" />
           <Property Name="proEstado" Type="char" MaxLength="1" />
         </EntityType>
@@ -97,6 +108,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="nutriecommerceModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblCategoria" EntityType="Self.tblCategoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblProducto" EntityType="Self.tblProducto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblRol" EntityType="Self.tblRol" Schema="dbo" store:Type="Tables" />
@@ -120,6 +132,16 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="nutriecommerceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="tblCategoria">
           <Key>
             <PropertyRef Name="catId" />
@@ -142,6 +164,7 @@
           <Property Name="proDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="proPrecio" Type="Decimal" Precision="8" Scale="2" />
           <Property Name="proObser" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="proImagen" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="proFecha" Type="DateTime" Precision="0" />
           <Property Name="proEstado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="tblCategoria" Relationship="Self.FK_tbl_producto_tbl_categoria" FromRole="tblProducto" ToRole="tblCategoria" />
@@ -217,7 +240,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="nutriecommerceEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="nutriecommerceEntities8" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="tblCategoria" EntityType="Self.tblCategoria" />
           <EntitySet Name="tblProducto" EntityType="Self.tblProducto" />
           <EntitySet Name="tblRol" EntityType="Self.tblRol" />
@@ -241,7 +265,18 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="nutriecommerceModelStoreContainer" CdmEntityContainer="nutriecommerceEntities1">
+        <EntityContainerMapping StorageEntityContainer="nutriecommerceModelStoreContainer" CdmEntityContainer="nutriecommerceEntities8">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="nutriecommerceModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tblCategoria">
             <EntityTypeMapping TypeName="nutriecommerceModel.tblCategoria">
               <MappingFragment StoreEntitySet="tblCategoria">
@@ -263,6 +298,7 @@
                 <ScalarProperty Name="proDesc" ColumnName="proDesc" />
                 <ScalarProperty Name="proPrecio" ColumnName="proPrecio" />
                 <ScalarProperty Name="proObser" ColumnName="proObser" />
+                <ScalarProperty Name="proImagen" ColumnName="proImagen" />
                 <ScalarProperty Name="proFecha" ColumnName="proFecha" />
                 <ScalarProperty Name="proEstado" ColumnName="proEstado" />
               </MappingFragment>

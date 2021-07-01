@@ -7,11 +7,9 @@
 <!DOCTYPE html>
 
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
         a.my-class {
             color: white
@@ -29,18 +27,17 @@
                 color: white
             }
     </style>
-
 </head>
-<body style=" ">
-   
+<body style="padding:0%">
+    
     <div class="container">
-       
-        <center><h1>Listado de Productos</h1></center>
+
+        <center><h1  style="color:white"><i>Listado de Productos </i></h1></center>
         <hr />
-        
+
         <p>
             <div class="btn-group">
-                <button type="submit" name="add_product" class="btn btn-primary" aria-current="page"> @Html.ActionLink("Agregar Producto", "Create", null, new { @class = "my-class" })</button>
+                <button type="submit" name="add_product" class="btn btn-primary" aria-current="page">  @Html.ActionLink("Crear nuevo Producto", "Create", null, new { @class = "my-class" })</button>
             </div>
         </p>
         <br />
@@ -48,70 +45,66 @@
 
             <div class="panel-body">
                 <table class="table table-striped" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-style:italic;">
+
                     <thead>
                         <tr>
 
-                            <th class="text-center"> Código </th>
+                            <th class="text-center"> Codigo </th>
                             <th class="text-center"> Nombre </th>
-                            <th class="text-center"> Stock </th>
-                            <th class="text-center"> Detalle </th>
+                            <th class="text-center"> Cantidad </th>
+                            <th class="text-center"> Descripción </th>
                             <th class="text-center"> Precio </th>
                             <th class="text-center"> Observación </th>
-                            <th class="text-center"> Fecha </th>
-                            <th class="text-center"> Imagen</th>
+                            <th class="text-center"> Imagen </th>
                             <th class="text-center"> Categoria </th>
                             <th class="text-center"> Acciones </th>
 
 
                         </tr>
                     </thead>
-                    <tbody>
-
+                    <tbody style="text-align:center">
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td class="text-center">
+                                <td>
                                     @Html.DisplayFor(modelItem => item.proCodigo)
                                 </td>
-                                <td class="text-center">
+                                <td>
                                     @Html.DisplayFor(modelItem => item.proNombre)
                                 </td>
-                                <td class="text-center">
+                                <td>
                                     @Html.DisplayFor(modelItem => item.proStock)
                                 </td>
-                                <td class="text-center">
+                                <td>
                                     @Html.DisplayFor(modelItem => item.proDesc)
                                 </td>
-                                <td class="text-center">
+                                <td>
                                     @Html.DisplayFor(modelItem => item.proPrecio)
                                 </td>
-                                <td class="text-center">
+                                <td>
                                     @Html.DisplayFor(modelItem => item.proObser)
                                 </td>
-                                <td class="text-center">
-                                    @Html.DisplayFor(modelItem => item.proFecha)
+                                <td>
+                                    <img src="@Url.Action("getImagen", new { id = item.proId})" style="width:100px; height:150px;max-width:100%;height:auto;" />
+
                                 </td>
-                                <td class="text-center">
-                                    @Html.DisplayFor(modelItem => item.proEstado)
-                                </td>
-                                <td class="text-center">
+                                <td>
                                     @Html.DisplayFor(modelItem => item.tblCategoria.catNombre)
                                 </td>
-                                <td class="text-center">
+                                <td>
                                     @Html.ActionLink("Editar", "Edit", new { id = item.proId }) |
                                     @Html.ActionLink("Detalle", "Details", new { id = item.proId }) |
                                     @Html.ActionLink("Eliminar", "Delete", new { id = item.proId })
                                 </td>
                             </tr>
-
                         }
                     </tbody>
-
 
                 </table>
             </div>
         </div>
     </div>
-    
+
+
 </body>
 </html>

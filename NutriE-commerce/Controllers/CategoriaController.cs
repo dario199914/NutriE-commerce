@@ -12,7 +12,7 @@ namespace NutriE_commerce.Controllers
 {
     public class CategoriaController : Controller
     {
-        private nutriecommerceEntities1 db = new nutriecommerceEntities1();
+        private nutriecommerceEntities8 db = new nutriecommerceEntities8();
 
         // GET: Categoria
         public ActionResult Index()
