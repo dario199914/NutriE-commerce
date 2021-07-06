@@ -1,0 +1,72 @@
+﻿@model System.Data.DataTable
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Report</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <center><h1><i>Reporte de Ventas</i></h1></center>
+        <tr>
+            <td>
+                <table id="cabezera">
+                    <tr>
+                        <td style="width:140px">
+                            <img src="~/Perro.png" style="width:100px" />
+                        </td>
+                        <td>
+                            <table style="width:100%">
+                                <tr><td><label style="font-size:16px;font-weight:bold;text-align:center;width:100%;display:block">Comercializadora: NutriE-Commerce</label></td></tr>
+                                <tr><td colspan="4" align="center" style="font-size:14px">Direccion: Distrito Metropolitano de Quito</td> </tr>
+                                <tr><td colspan="4" align="center" style="font-size:14px">Teléfono: xxxxxxxxxxx</td> </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+        <link rel="icon" type="image/x-icon" href="~/Logo.png" />
+        <hr />
+        <br />
+        <div class="panel panel-default">
+
+            <div class="panel-body">
+                <table class="table table-striped" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-style:italic;">
+                    <thead>
+                        <tr>
+                            <th class="text-center"> Producto </th>
+                            <th class="text-center"> Precio </th>
+
+                            <th class="text-center">  Cantidad</th>
+                            <th class="text-center"> Total </th>
+                            <th class="text-center"> Fecha </th>
+
+                        </tr>
+                    </thead>
+                    <tbody style="text-align:center">
+                        @for (int i = 0; i < Model.Rows.Count; i++)
+                        {
+                            <tr>
+                                <td>@Model.Rows[i][0]</td>
+                                <td>@Model.Rows[i][1]</td>
+
+                                <td>@Model.Rows[i][3]</td>
+                                <td>@Model.Rows[i][4]</td>
+                                <td>@Model.Rows[i][2]</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

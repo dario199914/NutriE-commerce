@@ -1,8 +1,4 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace NutriE_commerce.Controllers
@@ -40,15 +36,7 @@ namespace NutriE_commerce.Controllers
 
 
         }
-        public ActionResult Usuarios()
-        {
-            
-            return View();
-        }
-        public ActionResult Categoria()
-        {
 
-            return View();
-        }
+
     }
 }

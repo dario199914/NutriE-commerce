@@ -18,6 +18,7 @@ namespace NutriE_commerce.Models
         public Nullable<int> proId { get; set; }
         public Nullable<System.DateTime> fechaVenta { get; set; }
         public Nullable<int> cantidadVenta { get; set; }
+        public Nullable<decimal> totalVenta { get; set; }
     
         public virtual tblProducto tblProducto { get; set; }
     }

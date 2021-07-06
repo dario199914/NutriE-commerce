@@ -70,6 +70,7 @@
           <Property Name="proId" Type="int" />
           <Property Name="fechaVenta" Type="date" />
           <Property Name="cantidadVenta" Type="int" />
+          <Property Name="totalVenta" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
         <Association Name="FK_tbl_producto_tbl_categoria">
           <End Role="tblCategoria" Type="Self.tblCategoria" Multiplicity="0..1" />
@@ -202,6 +203,7 @@
           <Property Name="proId" Type="Int32" />
           <Property Name="fechaVenta" Type="DateTime" Precision="0" />
           <Property Name="cantidadVenta" Type="Int32" />
+          <Property Name="totalVenta" Type="Decimal" Precision="10" Scale="2" />
           <NavigationProperty Name="tblProducto" Relationship="Self.FK_tbl_venta_tbl_producto" FromRole="tblVenta" ToRole="tblProducto" />
         </EntityType>
         <Association Name="FK_tbl_producto_tbl_categoria">
@@ -240,7 +242,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="nutriecommerceEntities8" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="nutriecommerceEntities10" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="tblCategoria" EntityType="Self.tblCategoria" />
           <EntitySet Name="tblProducto" EntityType="Self.tblProducto" />
@@ -265,7 +267,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="nutriecommerceModelStoreContainer" CdmEntityContainer="nutriecommerceEntities8">
+        <EntityContainerMapping StorageEntityContainer="nutriecommerceModelStoreContainer" CdmEntityContainer="nutriecommerceEntities10">
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="nutriecommerceModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -335,6 +337,7 @@
                 <ScalarProperty Name="proId" ColumnName="proId" />
                 <ScalarProperty Name="fechaVenta" ColumnName="fechaVenta" />
                 <ScalarProperty Name="cantidadVenta" ColumnName="cantidadVenta" />
+                <ScalarProperty Name="totalVenta" ColumnName="totalVenta" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

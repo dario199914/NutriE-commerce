@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using NutriE_commerce.Models;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using NutriE_commerce.Models;
 
 namespace NutriE_commerce.Controllers
 {
     public class CategoriaController : Controller
     {
-        private nutriecommerceEntities8 db = new nutriecommerceEntities8();
+        private nutriecommerceEntities10 db = new nutriecommerceEntities10();
 
         // GET: Categoria
         public ActionResult Index()

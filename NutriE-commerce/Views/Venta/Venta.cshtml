@@ -1,8 +1,10 @@
 ﻿@model NutriE_commerce.Models.tblVenta
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    List<SelectListItem> items = (List<SelectListItem>)ViewBag.items;
+
     IEnumerable<SelectListItem> lista = (IEnumerable<SelectListItem>)ViewBag.items;
+
 }
 
 <!DOCTYPE html>
@@ -12,34 +14,33 @@
     <meta name="viewport" content="width=device-width" />
     <title>Venta</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
 
 </head>
 <body>
 
 
-    <form class="row g-3" style="padding-left:25%;padding-right:25%" action="@Url.Content("~/Venta/Venta")" method="post">
-        <center><h1>Generar Venta </h1></center>
+    <form class="row" action="@Url.Content("~/Venta/Venta")" style="color:white" method="post">
+        <center><h1><i>Generar Venta </i></h1></center>
         <hr />
-        <div class="col-md-6">
-            <label for="inputState" class="form-label">Producto</label>
-            
+        <div class="row">
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Producto</label>
+                @Html.DropDownList("proId", lista, " Seleccione ", new { id = "proId", @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                <label for="inputState" class="form-label">Cantidad</label>
+                <input type="number" class="form-control" name="cantidadVenta" required />
+            </div>
+            <div class="col-md-2">
+                <br />
+                <button type="submit" class="btn btn-primary" name="btn_generarVenta">Generar Venta</button>
+               
+            </div>
         </div>
-        @Html.DropDownList("proId", lista, "---------- Seleccione ----------", new { @class = "form-control" })
-       
-        <asp:DropDownList runat="server" ID="ddlLista"></asp:DropDownList>
-        <div class="col-md-4">
-            <label for="inputState" class="form-label">Cantidad</label>
-            <input type="number" class="form-control" name="cantidadVenta" required/>
-        </div>
-        <div class="col-md-2">
-            <label for="inputZip" class="form-label">Total</label>
-            <input type="text" class="form-control" name="totalVenta">
-        </div>
-
-        <div class="col-12">
-            <button type="submit" class="btn btn-primary">Generar Venta</button>
-        </div>
-
+        
     </form>
 
 </body>

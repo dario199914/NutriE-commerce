@@ -13,10 +13,10 @@ namespace NutriE_commerce.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class nutriecommerceEntities8 : DbContext
+    public partial class nutriecommerceEntities10 : DbContext
     {
-        public nutriecommerceEntities8()
-            : base("name=nutriecommerceEntities8")
+        public nutriecommerceEntities10()
+            : base("name=nutriecommerceEntities10")
         {
         }
     

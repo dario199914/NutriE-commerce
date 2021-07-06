@@ -5,49 +5,54 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">  
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">
+    
 
 
-   
+
+
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body style="padding: 0%; background: linear-gradient(-225deg, #FF057C 0%, #7C64D5 48%, #4CC3FF 100%); background-attachment: fixed ;">
     <nav class="navbar navbar-light" style="background-color: #fcfcfc; ">
         <div class="container">
             <a class="navbar-brand" style="padding-left:12%">NutriEcommercce</a>
-          
+
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="nav navbar-nav">
-                    <li >@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                     <li>@Html.ActionLink("Productos", "Index", "Producto")</li>
                     <li>@Html.ActionLink("Categorias", "Index", "Categoria")</li>
                     <li>@Html.ActionLink("Usuarios", "Index", "Usuario")</li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Ventas
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">@Html.ActionLink("Generar Ventas", "Venta", "Venta")</a></li>
-                            <li><a class="dropdown-item" href="#">@Html.ActionLink("Listar Ventas", "Venta", "Venta")</a></li>
 
+                   
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            Ventas <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" style="text-align:center">
+                            <p>@Html.ActionLink("Generar Ventas", "Venta", "Venta")</p>
+                            <p>@Html.ActionLink("Listado de Ventas", "Index", "Venta")</p>
                         </ul>
+                        
                     </li>
+                    <li style="text-align:right;">@Html.ActionLink("Cerrar Sesión", "Login", "Acceso") </li>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="container body-content">
-        <i>
-            @RenderBody()
-            <hr />
-            <footer>
-                <p style="color:white">&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-            </footer>
-        </i>
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <i><p style="color:white">&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p></i>
+        </footer>
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
- </body>
+</body>
 </html>

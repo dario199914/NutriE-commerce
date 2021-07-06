@@ -81,6 +81,11 @@
                     @Html.EditorFor(model => model.usuEstado, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.usuEstado, "", new { @class = "text-danger" })
                 </div>
+                <div class="col-md-4">
+                    <label for="inputCity" class="form-label">Rol</label>
+                    @Html.DropDownList("rolId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.rolId, "", new { @class = "text-danger" })
+                </div>
             </div>
             <br />
             <center>
