@@ -170,15 +170,15 @@ namespace NutriE_commerce.Controllers
 
             return File(memoryStream, "image/jpg");
         }
-        public ActionResult Report()
+        public ActionResult ReporteProducto()
         {
             var tblProducto = db.tblProducto.Include(t => t.tblCategoria);
             return View(tblProducto.ToList());
         }
         public ActionResult Print()
         {
-            return new ActionAsPdf("Report")
-            { FileName = "test1.pdf" };
+            return new ActionAsPdf("ReporteProducto")
+            { FileName = "Reporte.pdf" };
         }
     }
 }
