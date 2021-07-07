@@ -1,4 +1,5 @@
-﻿using NutriE_commerce.Models;
+﻿using NutriE_commerce.Extensions;
+using NutriE_commerce.Models;
 using NutriE_commerce.Models.ViewModels;
 using Rotativa;
 using System;
@@ -23,7 +24,7 @@ namespace NutriE_commerce.Controllers
         {
 
             llenarDropDownList();
-            // obtenerPrecio();
+            
             return View();
         }
         public ActionResult Index()
@@ -115,19 +116,23 @@ namespace NutriE_commerce.Controllers
                 if (proStock < cantidadVenta)
                 {
                     // se meustra un error 
-                    Response.Write("<script language=javascript>alert('ERROR ');</script>");
-
+                    this.AddNotification("Cantidad ingresada, excede a la cantidad del Stock del Producto..!!", NotificationType.INFO);
+                    return RedirectToAction("Index", "Venta");
                 }
                 else {
                     //ingresamos venta a la base de datos
+                    int nuevoStock = proStock - Convert.ToInt32( cantidadVenta);
                     string sentencia1 = "INSERT INTO tblVenta (proId,fechaVenta,cantidadVenta,totalVenta) VALUES ('" + proId + "','" + fecha + "','" + cantidadVenta + "','" + total + "')";
                     SqlCommand cmd1 = new SqlCommand(sentencia1, conn);
                     cmd1.ExecuteNonQuery();
                     // controlar el stock 
 
-
+                    string sentencia2 = "UPDATE tblProducto SET proStock = '"+nuevoStock+"' WHERE proId='"+ proId + "';";
+                    SqlCommand cmd2 = new SqlCommand(sentencia2, conn);
+                    cmd2.ExecuteNonQuery();
                     conn.Close();
 
+                    this.AddNotification("Venta Generada con Exito..!!", NotificationType.INFO);
                     return RedirectToAction("Index", "Venta");
                 }
 
@@ -135,6 +140,7 @@ namespace NutriE_commerce.Controllers
             }
             else
             {
+                this.AddNotification("Ha ocurrido un error..!!", NotificationType.INFO);
                 return RedirectToAction("Index", "Venta"); ;
             }
             conn.Close();
@@ -143,38 +149,10 @@ namespace NutriE_commerce.Controllers
         }
 
 
-        public List<SelectListItem> ObtenerListado()
-        {
-
-            return new List<SelectListItem>() {
-             new SelectListItem(){
-
-             Text="sI",
-             Value="1"}
-            };
-
-        }
-        public DataSet Consulta(string strSql)
-        {
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = @"Data Source=DESKTOP-5FUIGH5\SQLEXPRESS;Initial Catalog=nutriecommerce;Integrated Security=True;";
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(strSql, conn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            conn.Close();
-            return ds;
-        }
-        private void IniciarLlenarDropDrow()
-        {
-
-        }
-        public ActionResult Create()
-        {
-            ViewBag.catId = new SelectList(db.tblProducto, "proId", "proNombre");
-            return View();
-        }
+       
+       
+       
+       
         public ActionResult Report()
         {
             SqlConnection conn = new SqlConnection();
