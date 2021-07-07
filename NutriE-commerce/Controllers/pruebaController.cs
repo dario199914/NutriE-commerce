@@ -8,7 +8,7 @@ namespace NutriE_commerce.Controllers
 {
     public class pruebaController : Controller
     {
-        private nutriecommerceEntities10 db = new nutriecommerceEntities10();
+        private nutriecommerceEntities11 db = new nutriecommerceEntities11();
 
         // GET: prueba
         public ActionResult Index()

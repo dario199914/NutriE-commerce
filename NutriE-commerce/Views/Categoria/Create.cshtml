@@ -10,6 +10,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Create</title>
+
     <style type="text/css">
         a.my-class {
             color: white
@@ -39,7 +40,7 @@
 
         <div style="color:white">
 
-            <center ><h1>Crea una Categorias</h1></center>
+            <center ><h1><i>Crea una Categorias</i></h1></center>
             <hr />
 
 
@@ -49,21 +50,23 @@
                 <center>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Nombre</label>
-                        @Html.EditorFor(model => model.catNombre, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.catNombre, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                         @Html.ValidationMessageFor(model => model.catNombre, "", new { @class = "text-danger" })
 
                     </div>
                     <br />
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Descripción</label>
-                        @Html.EditorFor(model => model.catDesc, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.catDesc, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                         @Html.ValidationMessageFor(model => model.catDesc, "", new { @class = "text-danger" })
                     </div>
 
                     <br />
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Estado</label>
-                        @Html.EditorFor(model => model.catEstado, new { htmlAttributes = new { @class = "form-control" } })
+                        <label for="exampleFormControlInput1" class="form-label">Estado</label><br />
+                        <label for="exampleFormControlInput1" class="form-label">A: Activo </label>
+                        <label for="exampleFormControlInput1" class="form-label">I: Inactivo </label>
+                        @Html.EditorFor(model => model.catEstado, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                         @Html.ValidationMessageFor(model => model.catEstado, "", new { @class = "text-danger" })
                     </div>
 

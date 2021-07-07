@@ -1,4 +1,5 @@
-﻿using NutriE_commerce.Models;
+﻿using NutriE_commerce.Extensions;
+using NutriE_commerce.Models;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -8,11 +9,12 @@ namespace NutriE_commerce.Controllers
 {
     public class CategoriaController : Controller
     {
-        private nutriecommerceEntities10 db = new nutriecommerceEntities10();
+        private nutriecommerceEntities11 db = new nutriecommerceEntities11();
 
         // GET: Categoria
         public ActionResult Index()
         {
+          
             return View(db.tblCategoria.ToList());
         }
 
@@ -28,12 +30,15 @@ namespace NutriE_commerce.Controllers
             {
                 return HttpNotFound();
             }
+            
             return View(tblCategoria);
         }
 
         // GET: Categoria/Create
         public ActionResult Create()
         {
+           
+
             return View();
         }
 
@@ -48,9 +53,10 @@ namespace NutriE_commerce.Controllers
             {
                 db.tblCategoria.Add(tblCategoria);
                 db.SaveChanges();
+                this.AddNotification("Categoria Registrada..!!", NotificationType.INFO);
                 return RedirectToAction("Index");
             }
-
+           
             return View(tblCategoria);
         }
 
@@ -80,6 +86,7 @@ namespace NutriE_commerce.Controllers
             {
                 db.Entry(tblCategoria).State = EntityState.Modified;
                 db.SaveChanges();
+                this.AddNotification("Categoria Editada..!!", NotificationType.INFO);
                 return RedirectToAction("Index");
             }
             return View(tblCategoria);
@@ -108,6 +115,7 @@ namespace NutriE_commerce.Controllers
             tblCategoria tblCategoria = db.tblCategoria.Find(id);
             db.tblCategoria.Remove(tblCategoria);
             db.SaveChanges();
+            this.AddNotification("Categoria Eliminada..!!", NotificationType.INFO);
             return RedirectToAction("Index");
         }
 

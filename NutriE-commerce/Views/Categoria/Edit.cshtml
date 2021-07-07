@@ -50,20 +50,20 @@
                     <div style="padding-left:25%; padding-right:25%">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nombre</label>
-                            @Html.EditorFor(model => model.catNombre, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.catNombre, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                             @Html.ValidationMessageFor(model => model.catNombre, "", new { @class = "text-danger" })
 
                         </div>
                         <br />
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Descripción</label>
-                            @Html.EditorFor(model => model.catDesc, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.catDesc, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                             @Html.ValidationMessageFor(model => model.catDesc, "", new { @class = "text-danger" })
                         </div>
                         <br />
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Estado</label>
-                            @Html.EditorFor(model => model.catEstado, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.catEstado, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                             @Html.ValidationMessageFor(model => model.catEstado, "", new { @class = "text-danger" })
 
                         </div>

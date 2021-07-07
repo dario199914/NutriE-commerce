@@ -1,0 +1,100 @@
+﻿@model IEnumerable<NutriE_commerce.Models.tblProducto>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Reporte Productos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container">
+        <center><i><h1>Reporte de Ventas</h1></i></center>
+        <tr>
+            <td>
+                <table id="cabezera">
+                    <tr>
+                        <td style="width:140px">
+                            <img src="~/Perro.png" style="width:100px" />
+                        </td>
+                        <td>
+                            <table style="width:100%">
+                                <tr><td><label style="font-size:16px;font-weight:bold;text-align:center;width:100%;display:block">Comercializadora: NutriE-Commerce</label></td></tr>
+                                <tr><td colspan="4" align="center" style="font-size:14px">Direccion: Distrito Metropolitano de Quito</td> </tr>
+                                <tr><td colspan="4" align="center" style="font-size:14px">Teléfono: xxxxxxxxxxx</td> </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+        <link rel="icon" type="image/x-icon" href="~/Logo.png" />
+        <hr />
+        <br />
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="table table-striped" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-style:italic;">
+                    <thead>
+                        <tr>
+                            <th class="text-center"> Código </th>
+                            <th class="text-center"> Nombre </th>
+                            <th class="text-center"> Stock </th>
+                            <th class="text-center"> Detalle </th>
+                            <th class="text-center"> Precio </th>
+                            <th class="text-center"> Observación </th>
+                            <th class="text-center"> Fecha </th>
+                            <th class="text-center"> Imagen</th>
+                            <th class="text-center"> Estado</th>
+                            <th class="text-center"> Categoria </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.proCodigo)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.proNombre)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.proStock)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.proDesc)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.proPrecio)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.proObser)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.proFecha)
+                                </td>
+                                <td class="text-center">
+                                    <img src="@Url.Action("getImagen", new { id = item.proId})" style="width:100px; height:150px;max-width:100%;height:auto;" />
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.proEstado)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.tblCategoria.catNombre)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    </div>
+</body>

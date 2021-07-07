@@ -4,8 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b1564f3160144509b454ace79987891d" Name="Diagram1">
-        <EntityTypeShape EntityType="nutriecommerceModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+      <Diagram DiagramId="0065fb7087164937ab0fd8c3efd4a139" Name="Diagram1">
         <EntityTypeShape EntityType="nutriecommerceModel.tblCategoria" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="nutriecommerceModel.tblProducto" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="nutriecommerceModel.tblRol" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />

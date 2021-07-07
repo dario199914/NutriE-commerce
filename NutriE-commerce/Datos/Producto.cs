@@ -8,7 +8,7 @@ namespace NutriE_commerce.Datos
     {
         public List<tblProducto> Consultar()
         {
-            using (nutriecommerceEntities10 contexto = new nutriecommerceEntities10())
+            using (nutriecommerceEntities11 contexto = new nutriecommerceEntities11())
             {
                 return contexto.tblProducto.AsNoTracking().ToList();
             }

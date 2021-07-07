@@ -6,7 +6,7 @@ namespace NutriE_commerce.Datos
     {
         public void Guardar(tblVenta modelo)
         {
-            using (nutriecommerceEntities10 contexto = new nutriecommerceEntities10())
+            using (nutriecommerceEntities11 contexto = new nutriecommerceEntities11())
             {
                 contexto.tblVenta.Add(modelo);
 

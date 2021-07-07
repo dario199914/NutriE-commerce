@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 
@@ -15,7 +16,7 @@ namespace NutriE_commerce.Controllers
     public class VentaController : Controller
     {
         int pro_Id;
-        private nutriecommerceEntities10 db = new nutriecommerceEntities10();
+        private nutriecommerceEntities11 db = new nutriecommerceEntities11();
         // GET: Venta
         int proID;
         public ActionResult Venta()
@@ -44,7 +45,7 @@ namespace NutriE_commerce.Controllers
         public void llenarDropDownList()
         {
             List<TablaViewModel> lst = null;
-            using (Models.nutriecommerceEntities10 db = new Models.nutriecommerceEntities10())
+            using (Models.nutriecommerceEntities11 db = new Models.nutriecommerceEntities11())
             {
                 lst = (from d in db.tblProducto
                        select new TablaViewModel
@@ -111,24 +112,33 @@ namespace NutriE_commerce.Controllers
                 total = precio * cantidad;
                 reader.Close();
 
+                if (proStock < cantidadVenta)
+                {
+                    // se meustra un error 
+                    Response.Write("<script language=javascript>alert('ERROR ');</script>");
 
-                //ingresamos venta a la base de datos
-                string sentencia1 = "INSERT INTO tblVenta (proId,fechaVenta,cantidadVenta,totalVenta) VALUES ('" + proId + "','" + fecha + "','" + cantidadVenta + "','" + total + "')";
-                SqlCommand cmd1 = new SqlCommand(sentencia1, conn);
-                cmd1.ExecuteNonQuery();
-                // controlar el stock 
+                }
+                else {
+                    //ingresamos venta a la base de datos
+                    string sentencia1 = "INSERT INTO tblVenta (proId,fechaVenta,cantidadVenta,totalVenta) VALUES ('" + proId + "','" + fecha + "','" + cantidadVenta + "','" + total + "')";
+                    SqlCommand cmd1 = new SqlCommand(sentencia1, conn);
+                    cmd1.ExecuteNonQuery();
+                    // controlar el stock 
 
 
-                conn.Close();
+                    conn.Close();
 
-                return RedirectToAction("Index", "Venta");
+                    return RedirectToAction("Index", "Venta");
+                }
+
+                
             }
             else
             {
-                return RedirectToAction("Venta", "Venta"); ;
+                return RedirectToAction("Index", "Venta"); ;
             }
             conn.Close();
-            return View();
+            return RedirectToAction("Index", "Venta");
 
         }
 

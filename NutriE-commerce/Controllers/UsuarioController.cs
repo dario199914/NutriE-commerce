@@ -8,7 +8,7 @@ namespace NutriE_commerce.Controllers
 {
     public class UsuarioController : Controller
     {
-        private nutriecommerceEntities10 db = new nutriecommerceEntities10();
+        private nutriecommerceEntities11 db = new nutriecommerceEntities11();
 
         // GET: Usuario
         public ActionResult Index()
