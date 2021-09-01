@@ -103,7 +103,8 @@ namespace NutriE_commerce.Controllers
             double cantidad = Convert.ToDouble(cantidadVenta);
             int proStock;
             double total;
-            string fecha = DateTime.Now.ToString();
+            string fecha = DateTime.Now.ToString("yyyy/MM/dd");
+           
 
 
             if (reader.Read())

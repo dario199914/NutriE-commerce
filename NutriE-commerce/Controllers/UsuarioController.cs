@@ -1,4 +1,5 @@
-﻿using NutriE_commerce.Models;
+﻿using NutriE_commerce.Extensions;
+using NutriE_commerce.Models;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -50,6 +51,7 @@ namespace NutriE_commerce.Controllers
             {
                 db.tblUsuario.Add(tblUsuario);
                 db.SaveChanges();
+                this.AddNotification("Usuario Registrado..!!", NotificationType.INFO);
                 return RedirectToAction("Index");
             }
 
@@ -84,6 +86,7 @@ namespace NutriE_commerce.Controllers
             {
                 db.Entry(tblUsuario).State = EntityState.Modified;
                 db.SaveChanges();
+                this.AddNotification("Usuario Editado..!!", NotificationType.INFO);
                 return RedirectToAction("Index");
             }
             ViewBag.rolId = new SelectList(db.tblRol, "rolId", "rolNombre", tblUsuario.rolId);
@@ -113,7 +116,10 @@ namespace NutriE_commerce.Controllers
             tblUsuario tblUsuario = db.tblUsuario.Find(id);
             db.tblUsuario.Remove(tblUsuario);
             db.SaveChanges();
+            this.AddNotification("Usuario Eliminada..!!", NotificationType.INFO);
             return RedirectToAction("Index");
+
+
         }
 
         protected override void Dispose(bool disposing)

@@ -55,10 +55,17 @@ namespace NutriE_commerce.Controllers
         {
             HttpPostedFileBase FileBase = Request.Files[0];
 
-            WebImage image = new WebImage(FileBase.InputStream);
-
-            tblProducto.proImagen = image.GetBytes();
-
+            if (FileBase.ContentLength == 0)
+            {
+                this.AddNotification("Ingrese una imagen para el Registro ..!!", NotificationType.INFO);
+               
+                return RedirectToAction("Create");
+            }
+            else
+            {
+                WebImage image = new WebImage(FileBase.InputStream);
+                tblProducto.proImagen = image.GetBytes();
+            }
 
             if (ModelState.IsValid)
             {
@@ -95,12 +102,14 @@ namespace NutriE_commerce.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "proId,catId,proCodigo,proNombre,proStock,proDesc,proPrecio,proObser,proFecha,proEstado")] tblProducto tblProducto)
         {
-            byte[] imagenActual = null;
+            tblProducto _Imagen = new tblProducto();
 
             HttpPostedFileBase FileBase = Request.Files[0];
-            if (FileBase == null)
+            if (FileBase.ContentLength == 0)
             {
-                imagenActual = db.tblProducto.SingleOrDefault(p => p.proId == tblProducto.proId).proImagen;
+                _Imagen = db.tblProducto.Find(tblProducto.proId);
+                tblProducto.proImagen = _Imagen.proImagen;
+
             }
             else
             {
@@ -111,6 +120,8 @@ namespace NutriE_commerce.Controllers
 
             if (ModelState.IsValid)
             {
+                db.Entry(_Imagen).State = EntityState.Detached;
+
                 db.Entry(tblProducto).State = EntityState.Modified;
                 db.SaveChanges();
                 this.AddNotification("Producto Editado..!!", NotificationType.INFO);

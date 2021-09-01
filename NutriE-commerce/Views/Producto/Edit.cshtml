@@ -10,7 +10,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Edit</title>
-    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">
+    
     <style type="text/css">
         a.my-class {
             color: white
@@ -50,12 +50,12 @@
                 <form class="row g-3">
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">Categoria</label>
+                            <label for="inputEmail4" class="form-label">Categoría</label>
                             @Html.DropDownList("catId", null, htmlAttributes: new { @class = "form-control", required = "required" })
                             @Html.ValidationMessageFor(model => model.catId, "", new { @class = "text-danger" })
                         </div>
                         <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">Codigo </label>
+                            <label for="inputEmail4" class="form-label">Código </label>
                             @Html.EditorFor(model => model.proCodigo, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                             @Html.ValidationMessageFor(model => model.proCodigo, "", new { @class = "text-danger" })
                         </div>
@@ -103,7 +103,7 @@
                         </div>
                         <div class="col-md-2">
                             <label for="inputState" class="form-label">Fecha</label>
-                            @Html.EditorFor(model => model.proFecha, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                            @Html.EditorFor(model => model.proFecha, new { htmlAttributes = new { @class = "form-control datepicker", required = "required" } })
                             @Html.ValidationMessageFor(model => model.proFecha, "", new { @class = "text-danger" })
                         </div>
                         <div class="col-md-2">
@@ -144,7 +144,7 @@
 
         </div>
     }
-<br />
+    <br />
     <div class="container">
         <center>
             <div>
@@ -153,6 +153,17 @@
             </div>
         </center>
     </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
 
+        <script type="text/javascript">
+        $(function () { // will trigger when the document is ready
+            $('.datepicker').datepicker({
+
+                format: 'yyyy/mm/dd'
+            }); //Initialise any date pickers
+        });
+        </script>
+    }
 </body>
 </html>

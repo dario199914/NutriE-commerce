@@ -35,7 +35,7 @@
     <hr />
 
 
-    <h3 style="color:white">¿Estás segura de que quieres eliminar este elemento?</h3>
+    <h3 style="color:white">¿Estás seguro de que quieres eliminar este elemento?</h3>
     <br />
     <div class="panel panel-default">
         <div class="panel-body">
@@ -43,8 +43,8 @@
                 <thead>
                     <tr>
                         <th class="text-center"> Nombre </th>
-                        <th class="text-center"> Cedula </th>
-                        <th class="text-center"> Telefono </th>
+                        <th class="text-center"> Cédula </th>
+                        <th class="text-center"> Teléfono </th>
                         <th class="text-center"> Correo </th>
                         <th class="text-center"> Contraseña </th>
                         <th class="text-center"> Estado </th>
@@ -83,16 +83,16 @@
             {
                 @Html.AntiForgeryToken()
 
+                <div class="form-actions no-color" style="text-align:right">
 
+                    <input type="submit" value="Eliminar Usuario" class="btn btn-primary" />
+
+                    <button type="button" class="btn btn-primary"> @Html.ActionLink("Ir a Usuarios", "Index", null, new { @class = "my-class" })</button>
+                </div>
             }
         </div>
 
     </div>
-    <div class="form-actions no-color" style="text-align:right">
-
-        <input type="submit" value="Eliminar Usuario" class="btn btn-primary" />
-
-        <button type="button" class="btn btn-primary"> @Html.ActionLink("Ir a Usuarios", "Index", null, new { @class = "my-class" })</button>
-    </div>
+   
 </body>
 </html>
